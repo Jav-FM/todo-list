@@ -1,0 +1,33 @@
+<div id='App' class='container m-6'>
+
+  <h1 class='title is-5'>Create a Todo</h1>
+
+  <div class='field'>
+    <label class='label'>Title</label>
+    <div class='control'>
+      <input class='input' type='text' v-model='form.title' />
+    </div>
+  </div>
+
+  <div class='field'>
+    <label class='label'>Description</label>
+    <div class='control'>
+      <input class='input' type='text' v-model='form.description' />
+    </div>
+  </div>
+
+  <button class='button is-link' @click='enviar()'>Create</button>
+
+</div>
+
+<div id='app'>{{message}}</div>
+
+<script src='https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js'></script>
+
+<script src='https://unpkg.com/vue@3'></script>
+<script>
+  Vue.createApp({ data() { return { form: {} } }, methods: { enviar() {
+  axios.post("/todo", this.form).then(() => window.location.href = "/") } },
+  }).mount('#app')
+
+</script>

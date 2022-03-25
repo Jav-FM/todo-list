@@ -1,0 +1,13 @@
+<div class='container m-6'>
+
+  <h1 class='title is-5'>Delete Todo</h1>
+  <p>Do you want to delete the Todo with id <strong>{{id}}</strong>?</p>
+
+  <button class='button is-danger' onclick='eliminar()'>Confirmar</button>
+
+</div>
+
+<script>
+  const eliminar = () => fetch("/todos/{{id}}", { method: "delete" }).then(() =>
+  window.location.href = "/")
+</script>
