@@ -3,7 +3,7 @@ require('dotenv').config();
 const { Pool } = require('pg');
 
 const connectionString =
-  process.env.DATABASE_URL ||
+  process.env.HEROKU_POSTGRESQL_AQUA_URL ||
   'postgresq//postgres:root@localhost:5432/simple_db';
 
 const pool = new Pool({
